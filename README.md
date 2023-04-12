@@ -3,7 +3,7 @@
 
 # INFURA NFT API
 
-Infura has come out swining with a potential replacement for blockchain indexing.
+Infura has come out swinging with a potential replacement for blockchain indexing.
 
 Link: https://docs.infura.io/infura/infura-expansion-apis/nft-api
 
