@@ -8,8 +8,19 @@ using UnityEngine.Networking;
 public class AllNFTs : MonoBehaviour
 {
     // Feel free to change all of this. It's purely educational and nothing more than a proof of concept
-    public string APIKey;
-    public string APICall;
+    private string APICall;
+    
+    // Add your Infura API Key and Secret <API KEY>:<API SECRET>
+    private string APIKey;
+
+    // Which Chain is your contract deployed on?
+    public string ChainID;
+
+    // What is your NFT Contract Address?
+    public string TokenContract;
+
+    // What tokenID do you want to check against?
+    public string TokenID;
 
 
     [Serializable]
@@ -30,12 +41,12 @@ public class AllNFTs : MonoBehaviour
 
     public void Start()
     {
-        // Add your Infura API Key and Secret in the format shown below
+        // Add your Infura API Key and Secret
         APIKey = "<API KEY>:<API SECRET>";
 
         // https://docs.infura.io/infura/infura-expansion-apis/nft-api/rest-apis/api-reference
         // The below URL will call all the owners of a specific NFT on a specified network and contract.
-        APICall = "https://nft.api.infura.io/networks/338/nfts/0x766D1AB3Badf9a5E3cc71dA0408B7125a16e2D45/2/owners";
+        APICall = "https://nft.api.infura.io/networks/" + ChainID + "/nfts/" + TokenContract + "/" + TokenID + "/owners";
 
         // Invoke the coroutine
         StartCoroutine(CallInfura(APICall));
